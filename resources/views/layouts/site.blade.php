@@ -70,7 +70,7 @@
         <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
         <script src="http://code.jivosite.com/widget/BsTW3Wv8pK" async></script>
     </head>
-    <body class="single-product travel_trip-page travel_trip">
+    <body class="single-product travel_tour-page travel_tour">
         <div class="wrapper-container">
             <header id="masthead" class="site-header sticky_header affix-top">
                 <div class="header_top_bar">
@@ -132,17 +132,17 @@
                                     <a href="index.html">Tours</a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="trips-from-khiva/trip-from-khiva-ancient-fortresses.html">Tours from Khiva</a>
+                                            <a href="tours-from-khiva/tour-from-khiva-ancient-fortresses.html">Tours from Khiva</a>
                                         </li>
                                         <li>
-                                            <a href="trips-from-samarkand/index.html">Tours from Samarkand</a>
+                                            <a href="tours-from-samarkand/index.html">Tours from Samarkand</a>
                                         </li>
                                         <li>
-                                            <a href="trips-from-bukhara/index.html">Tours from Bukhara</a>
+                                            <a href="tours-from-bukhara/index.html">Tours from Bukhara</a>
 
                                         </li>
                                         <li>
-                                            <a href="uzbekistan-trips/index.html">Uzbekistan trips</a>
+                                            <a href="uzbekistan-tours/index.html">Uzbekistan tours</a>
 
                                         </li>
 

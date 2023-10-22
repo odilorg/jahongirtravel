@@ -24,7 +24,10 @@ class TourController extends Controller
      */
     public function create()
     {
-        //
+      //  $included_items = Included::all();
+      // dd($included_items);
+      return view('admin.tours.create');
+        //return view('admin.tours.create', compact('included_items'));
     }
 
     /**
@@ -35,7 +38,32 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes =  request()->validate([
+            'tour_title' => ['required', 'max:255'],
+            'tour_code' => ['required', 'max:255'],            
+            'tour_duration' => ['required', 'max:255'],
+            'tour_description_name' => ['nullable', 'max:555'],
+            'tour_description' => ['required', 'max:3555'],
+            'tour_description_departure_return' => ['required', 'max:255'],
+            'tour_description_departure_time' => ['required', 'max:255'],
+            'tour_description_included' => ['required', 'max:1555'],
+            'tour_description_not_included' => ['required', 'max:1555'],
+            'tour_description_details_file' => ['nullable', 'file'],
+            'tour_itinarary' => ['required', 'max:3555'],
+            'tour_location_link' => ['required', 'max:1255'],
+
+            
+        ]);
+      //  dd($attributes);
+     
+      $attributes['tour_description_details_file'] = request()->file('tour_description_details_file')->store('tour_description_details_file');
+        (Tour::create($attributes));
+        
+         session()->flash('success', 'Tour has been created');
+         session()->flash('type', 'Tour Creation');
+         
+
+        return redirect('/admin');   
     }
 
     /**

@@ -57,7 +57,7 @@
 
                                             <ul class="sub-menu">
                                                 <li>
-                                                    Individual and group trips to Uzbekistan and Central Asia
+                                                    Individual and group tours to Uzbekistan and Central Asia
                                                 </li>
                                                 <li>Booking of domestic air and train tickets</li>
                                                 <li>Uzbekistan Hotel bookings</li>

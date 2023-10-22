@@ -54,7 +54,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="tour_description">Tour Description</label>
-                                <textarea class="form-control  @error('tour_description')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
+                                <textarea value="{{ old('tour_description') }}" class="form-control  @error('tour_description')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
                                     name="tour_description" rows="4" placeholder="Tour Description"></textarea>
                                 @error('tour_description')
                                     <p class="text-danger">{{ $message }}</p>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="tour_description_departure_return">Tour Start End Points</label>
-                                <textarea class="form-control  @error('tour_description_departure_return')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
+                                <textarea value="{{ old('tour_description_departure_return') }}" class="form-control  @error('tour_description_departure_return')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
                                     name="tour_description_departure_return" rows="4" placeholder="Tour Start End Points"></textarea>
                                 @error('tour_description_departure_return')
                                     <p class="text-danger">{{ $message }}</p>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="tour_description_included">Tour Included</label>
-                                <textarea class="form-control  @error('tour_description_included')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
+                                <textarea value="{{ old('tour_description_included') }}" class="form-control  @error('tour_description_included')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
                                     name="tour_description_included" rows="4" placeholder="Tour Included"></textarea>
                                 @error('tour_description_included')
                                     <p class="text-danger">{{ $message }}</p>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="tour_description_not_included">Tour not Included</label>
-                                <textarea class="form-control  @error('tour_description_not_included')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
+                                <textarea value="{{ old('tour_description_not_included') }}" class="form-control  @error('tour_description_not_included')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
                                     name="tour_description_not_included" rows="4" placeholder="Tour not Included"></textarea>
                                 @error('tour_description_not_included')
                                     <p class="text-danger">{{ $message }}</p>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="tour_itinarary">Tour Itinarary</label>
-                                <textarea class="form-control  @error('tour_itinarary')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
+                                <textarea value="{{ old('tour_itinarary') }}" class="form-control  @error('tour_itinarary')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
                                     name="tour_itinarary" rows="4" placeholder="Tour Itinarary"></textarea>
                                 @error('tour_itinarary')
                                     <p class="text-danger">{{ $message }}</p>
@@ -121,7 +121,17 @@
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <button type="submit">Submit</button>
+                            <div class="mb-4">
+                                @foreach ($included_items as $items)
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="example-checkbox-inline1 {{ $items->id }}" name="example-checkbox-inline1" >
+                                    <label class="form-check-label" for="example-checkbox-inline1 {{ $items->id }}">{{ $items->included_item_name }}</label>
+                                </div>
+                                @endforeach
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
                     </div>
 
