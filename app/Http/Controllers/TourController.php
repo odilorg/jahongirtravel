@@ -67,7 +67,7 @@ class TourController extends Controller
          session()->flash('type', 'Tour Creation');
          
 
-        return redirect('/admin');   
+        return redirect('/tours');   
     }
 
     /**

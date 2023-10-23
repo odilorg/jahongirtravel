@@ -7,9 +7,9 @@
         
             <div class="block block-rounded">
               <div class="block-header block-header-default">
-                <h3 class="block-title">Block Form</h3>
+                <h3 class="block-title">Tour Included Items</h3>
                 <div class="block-options">
-                  <a class="btn btn-primary" href="{{ route('includeds.create') }}" role="button">Add Tour Category</a>
+                  <a class="btn btn-primary" href="{{ route('includeds.create') }}" role="button">Add Tour Included Items</a>
                  
                 </div>
               </div>
@@ -18,7 +18,7 @@
                     <thead>
                       <tr>
                         <th class="text-center" style="width: 50px;"></th>
-                        <th>Category Name</th>
+                        <th>Included Item</th>
                         <th class="text-center" style="width: 100px;">Actions</th>
                       </tr>
                     </thead>
@@ -29,6 +29,8 @@
                             <td>{{ $items->included_item_name }}</td>
                             <td class="text-center">
                               <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
+                                  <i class="fa-regular fa-eye"></i>
                                 <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
                                   <i class="fa fa-pencil-alt"></i>
                                 </button>

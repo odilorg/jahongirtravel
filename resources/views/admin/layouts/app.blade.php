@@ -501,7 +501,7 @@
                                                 </li>
                                                 <li class="nav-main-item">
                                                     <a class="nav-main-link active" href="{{ route('includeds.index') }}">
-                                                        <span class="nav-main-link-name">Tour categories</span>
+                                                        <span class="nav-main-link-name">Tour Included Items</span>
                                                     </a>
                                                 </li>
                                                

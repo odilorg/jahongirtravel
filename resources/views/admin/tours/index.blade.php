@@ -18,6 +18,8 @@
                       <tr>
                         <th class="text-center" style="width: 50px;"></th>
                         <th>Tour Title</th>
+                        <th>Tour Code</th>
+                        <th>Tour Duration</th>
                         <th class="text-center" style="width: 100px;">Actions</th>
                       </tr>
                     </thead>
@@ -26,8 +28,12 @@
                         <tr>
                             <th class="text-center" scope="row">{{ $tour->id }}</th>
                             <td>{{ $tour->tour_title }}</td>
+                            <td>{{ $tour->tour_code }}</td>
+                            <td>{{ $tour->tour_duration }}</td>
                             <td class="text-center">
                               <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
+                                    <i class="fa-regular fa-eye"></i>
                                 <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
                                   <i class="fa fa-pencil-alt"></i>
                                 </button>
