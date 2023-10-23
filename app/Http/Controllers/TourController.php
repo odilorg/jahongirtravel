@@ -15,7 +15,10 @@ class TourController extends Controller
      */
     public function index()
     {
-        dd('all tours are here');
+        $tours = Tour::all();
+       // dd($tours);
+        return view('admin.tours.index', compact('tours'));
+        
     }
 
     /**
@@ -55,10 +58,10 @@ class TourController extends Controller
 
             
         ]);
-      //  dd($attributes);
+     //  dd($attributes);
      
       $attributes['tour_description_details_file'] = request()->file('tour_description_details_file')->store('tour_description_details_file');
-        (Tour::create($attributes));
+        Tour::create($attributes);
         
          session()->flash('success', 'Tour has been created');
          session()->flash('type', 'Tour Creation');

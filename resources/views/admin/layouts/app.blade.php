@@ -495,8 +495,8 @@
                                             </a>
                                             <ul class="nav-main-submenu">
                                                 <li class="nav-main-item">
-                                                    <a class="nav-main-link active" href="{{ route('tours.create') }}">
-                                                        <span class="nav-main-link-name">Add tour</span>
+                                                    <a class="nav-main-link active" href="{{ route('tours.index') }}">
+                                                        <span class="nav-main-link-name">Tours</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-main-item">

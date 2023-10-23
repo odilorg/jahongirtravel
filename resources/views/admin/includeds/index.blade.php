@@ -6,9 +6,13 @@
         <!-- Basic -->
         
             <div class="block block-rounded">
-                <div class="block-header block-header-default">
-                  <h3 class="block-title">Tour Categories</h3>
+              <div class="block-header block-header-default">
+                <h3 class="block-title">Block Form</h3>
+                <div class="block-options">
+                  <a class="btn btn-primary" href="{{ route('includeds.create') }}" role="button">Add Tour Category</a>
+                 
                 </div>
+              </div>
                 <div class="block-content">
                   <table class="table table-vcenter">
                     <thead>

@@ -46,7 +46,7 @@ class IncludedController extends Controller
         session()->flash('type', 'Category Creation');
         
 
-       return redirect('/admin');   
+       return redirect('/includeds');   
     }
 
     /**
