@@ -121,6 +121,7 @@
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <label class="form-label" for="tour_location_link">Tour Includes</label>
                             <div class="mb-4">
                                 @foreach ($included_items as $items)
                                 <div class="form-check form-check-inline">

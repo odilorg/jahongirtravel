@@ -14,7 +14,8 @@ class IncludedController extends Controller
      */
     public function index()
     {
-        //
+        $includeds = Included::all();
+        return view('admin.includeds.index', compact('includeds'));
     }
 
     /**
@@ -24,7 +25,7 @@ class IncludedController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.includeds.create');
     }
 
     /**
@@ -35,7 +36,17 @@ class IncludedController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $attributes =  request()->validate([
+            'included_item_name' => ['required', 'max:1055'],
+        ]);
+        (Included::create($attributes));
+        
+        session()->flash('success', 'Tour category has been created');
+        session()->flash('type', 'Category Creation');
+        
+
+       return redirect('/admin');   
     }
 
     /**

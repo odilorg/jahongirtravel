@@ -503,6 +503,11 @@
                                                         <span class="nav-main-link-name">Add tour</span>
                                                     </a>
                                                 </li>
+                                                <li class="nav-main-item">
+                                                    <a class="nav-main-link active" href="{{ route('includeds.create') }}">
+                                                        <span class="nav-main-link-name">Add tour category</span>
+                                                    </a>
+                                                </li>
                                                
                                             </ul>
                                         </li>
