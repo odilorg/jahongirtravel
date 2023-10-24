@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('tour_title', 100);
+            $table->string('tour_code', 100);
             $table->string('tour_duration',80);
            // $table->foreignId('category_id');
             $table->string('tour_description_name',100);
