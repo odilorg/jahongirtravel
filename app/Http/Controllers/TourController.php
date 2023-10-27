@@ -52,13 +52,14 @@ class TourController extends Controller
             'tour_description_departure_time' => ['required', 'max:255'],
             'tour_description_included' => ['required', 'max:1555'],
             'tour_description_not_included' => ['required', 'max:1555'],
-            'tour_description_details_file' => ['nullable', 'file'],
+            'tour_description_details_file' => ['required','nullable', 'file'],
             'tour_itinarary' => ['required', 'max:3555'],
             'tour_location_link' => ['required', 'max:1255'],
+            'includeditems' => ['nullable'],
 
             
         ]);
-     //  dd($attributes);
+     // dd($attributes);
      
       $attributes['tour_description_details_file'] = request()->file('tour_description_details_file')->store('tour_description_details_file');
         Tour::create($attributes);
