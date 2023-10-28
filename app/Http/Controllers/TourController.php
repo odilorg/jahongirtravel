@@ -118,7 +118,7 @@ foreach ($attributes['tour_categories'] as $key => $value) {
     {
         $included_items = Included::all();
         $tour_categories = Category::all();
-        
+
         return view('admin.tours.edit', compact('tour', 'included_items', 'tour_categories'));
     }
 
@@ -131,7 +131,52 @@ foreach ($attributes['tour_categories'] as $key => $value) {
      */
     public function update(Request $request, Tour $tour)
     {
-        //
+         $attributes =  request()->validate([
+            'tour_title' => ['required', 'max:255'],
+            'tour_code' => ['required', 'max:255'],            
+            'tour_duration' => ['required', 'max:255'],
+            'tour_description_name' => ['nullable', 'max:555'],
+            'tour_description' => ['required', 'max:3555'],
+            'tour_description_departure_return' => ['required', 'max:255'],
+            'tour_description_departure_time' => ['required', 'max:255'],
+            'tour_description_included' => ['required', 'max:1555'],
+            'tour_description_not_included' => ['required', 'max:1555'],
+            'tour_description_details_file' => ['required','nullable', 'file'],
+            'tour_itinarary' => ['required', 'max:3555'],
+            'tour_location_link' => ['required', 'max:1255'],
+            'includeditems' => ['nullable'],
+            'tour_categories' => ['nullable'],
+        ]);
+    //  /   dd($tour->id);
+        DB::table('category_tour')->where('tour_id',$tour->id)->delete();
+        DB::table('included_tour')->where('tour_id',$tour->id)->delete();
+        
+        $tour->update($attributes);
+        // insert categoty_tour and included_tour find both then insert
+        $attributes_category_tour =  request()->validate([
+            'tour_id' => ['integer'],
+        ]);
+        
+       // $attributes_category_tour = $tour->id;
+        // /dd($attributes_category_tour);
+        $tourCategories[] = $request->input('tour_categories');
+        $includedItems[] = $request->input('includeditems');
+        foreach ($attributes['tour_categories'] as $key => $value) {
+// DB::table('category_tour')
+// ->where('tour_id', $tour->id)
+// ->update(['category_id' => $value,]);
+
+             DB::insert('INSERT INTO category_tour (tour_id, category_id) VALUES (?, ?)', array($tour->id, $value));
+         }
+        
+         foreach ($attributes['includeditems'] as $key => $value) {
+            // DB::table('included_tour')
+            // ->where('tour_id', $tour->id)
+            // ->update(['included_id' => $value,]); 
+            DB::insert('INSERT INTO included_tour (tour_id, included_id) VALUES (?, ?)', array($tour->id, $value));
+        }
+        session()->flash('updated', 'Tour has been updated');
+        return redirect('tours');
     }
 
     /**
