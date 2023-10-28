@@ -9,7 +9,7 @@
               <div class="block-header block-header-default">
                 <h3 class="block-title">Tour Included Items</h3>
                 <div class="block-options">
-                  <a class="btn btn-primary" href="{{ route('includeds.create') }}" role="button">Add Tour Included Items</a>
+                  <a class="btn btn-primary" href="{{ route('notincludeds.create') }}" role="button">Add Tour Not Included Items</a>
                  
                 </div>
               </div>
@@ -30,25 +30,25 @@
                   <table class="table table-vcenter">
                     <thead>
                       <tr>
-                        <th class="text-center" style="width: 50px;"></th>
-                        <th>Included Item</th>
+                        <th class="text-center" style="width: 50px;">ID</th>
+                        <th>Not Included Item</th>
                         <th class="text-center" style="width: 100px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($includeds as $items )
+                        @foreach ($notincludeds as $items )
                         <tr>
                             <th class="text-center" scope="row">{{ $items->id }}</th>
-                            <td>{{ $items->included_item_name }}</td>
+                            <td>{{ $items->notincluded_item_name }}</td>
                             <td class="text-center">
                               <div class="btn-group">
                                 
-                                <a class="btn btn-info btn-sm" href="includeds/{{ $items->id }}/edit">
+                                <a class="btn btn-info btn-sm" href="notincludeds/{{ $items->id }}/edit">
                                   <i class="fas fa-pencil-alt">
                                   </i>
                                   Edit
                               </a>
-                              <form action="/includeds/{{ $items->id }}" method="post"
+                              <form action="/notincludeds/{{ $items->id }}" method="post"
                                 class="float-left">
                                 @csrf
                                 @method('delete')
@@ -66,7 +66,7 @@
                   </table>
                 </div>
               </div>
-             
+              
 
             
 

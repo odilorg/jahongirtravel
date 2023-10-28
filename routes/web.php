@@ -2,11 +2,14 @@
 
 use App\Models\Category;
 use App\Models\Included;
+use App\Models\Notincluded;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IncludedController;
+use App\Http\Controllers\NotincludedController;
 use App\Http\Controllers\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +41,7 @@ Route::middleware(['auth' ])->group(function () {
     Route::resources([
         'tours' => TourController::class,
         'includeds' => IncludedController::class,
+        'notincludeds' => NotincludedController::class,
         'categories' => CategoryController::class,
         
        

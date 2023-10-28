@@ -187,6 +187,8 @@ foreach ($attributes['tour_categories'] as $key => $value) {
      */
     public function destroy(Tour $tour)
     {
-        //
+        $tour->delete();
+        session()->flash('delete', 'Tour has been Deleted');
+        return redirect('tours');
     }
 }
