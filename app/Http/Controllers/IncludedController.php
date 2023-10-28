@@ -43,7 +43,7 @@ class IncludedController extends Controller
         (Included::create($attributes));
         
         session()->flash('success', 'Tour category has been created');
-        session()->flash('type', 'Category Creation');
+       
         
 
        return redirect('/includeds');   
@@ -68,7 +68,8 @@ class IncludedController extends Controller
      */
     public function edit(Included $included)
     {
-        //
+       // $includeds = Included::find($inc) 
+        return view('admin.includeds.edit', compact('included'));
     }
 
     /**
@@ -80,7 +81,14 @@ class IncludedController extends Controller
      */
     public function update(Request $request, Included $included)
     {
-        //
+      
+      
+        $attributes =  request()->validate([
+            'included_item_name' => ['required', 'max:1055'],
+        ]);
+        $included->update($attributes);
+        session()->flash('updated', 'Included Items has been updated');
+        return redirect('includeds');
     }
 
     /**
@@ -91,6 +99,8 @@ class IncludedController extends Controller
      */
     public function destroy(Included $included)
     {
-        //
+        $included->delete();
+        session()->flash('delete', 'Included Items has been Deleted');
+        return redirect('includeds');
     }
 }

@@ -29,14 +29,22 @@
                             <td>{{ $items->included_item_name }}</td>
                             <td class="text-center">
                               <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
-                                  <i class="fa-regular fa-eye"></i>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
-                                  <i class="fa fa-pencil-alt"></i>
+                                
+                                <a class="btn btn-info btn-sm" href="includeds/{{ $items->id }}/edit">
+                                  <i class="fas fa-pencil-alt">
+                                  </i>
+                                  Edit
+                              </a>
+                              <form action="/includeds/{{ $items->id }}" method="post"
+                                class="float-left">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
                                 </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete">
-                                  <i class="fa fa-times"></i>
-                                </button>
+                            </form>
                               </div>
                             </td>
                           </tr>
@@ -45,7 +53,21 @@
                   </table>
                 </div>
               </div>
-        
+              @if (session()->has('success'))
+              <div class="alert alert-primary" role="alert">
+                  {{ session()->get('success') }}
+               </div>
+            @elseif (session()->has('delete'))
+            <div class="alert alert-danger" role="alert">
+              {{ session()->get('delete') }}
+           </div>
+           @elseif (session()->has('updated'))
+            <div class="alert alert-success" role="alert">
+              {{ session()->get('updated') }}
+           </div>
+              @endif
+
+            
 
 
 
