@@ -77,11 +77,14 @@ $attributes_category_tour =  request()->validate([
 $attributes_category_tour = $tour->id;
 // /dd($attributes_category_tour);
 $tourCategories[] = $request->input('tour_categories');
+$includedItems[] = $request->input('includeditems');
 foreach ($attributes['tour_categories'] as $key => $value) {
- //   DB::table('category_tour')->insert($attributes_category_tour);
-    DB::insert('INSERT INTO category_tour (tour_id, category_id) VALUES (?, ?)', array($attributes_category_tour, $value));
-   // DB::insert('INSERT INTO version_authors (credit_id, author_id) VALUES (?, ?)', array($credit_id, $author->id));
+     DB::insert('INSERT INTO category_tour (tour_id, category_id) VALUES (?, ?)', array($attributes_category_tour, $value));
+ }
 
+ foreach ($attributes['includeditems'] as $key => $value) {
+
+    DB::insert('INSERT INTO included_tour (tour_id, included_id) VALUES (?, ?)', array($attributes_category_tour, $value));
 }
 
 //dd($attributes_category_tour);
