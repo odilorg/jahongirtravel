@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,7 +36,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes =  request()->validate([
+            'tour_category_name' => ['required', 'max:1055'],
+        ]);
+        (Category::create($attributes));
+        
+        session()->flash('success', 'Tour category has been created');
+       
+        
+
+       return redirect('/categories');   
     }
 
     /**
@@ -57,7 +67,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -69,7 +79,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $attributes =  request()->validate([
+            'tour_category_name' => ['required', 'max:1055'],
+        ]);
+        $category->update($attributes);
+        session()->flash('updated', 'Categories has been updated');
+        return redirect('categories');
     }
 
     /**
@@ -80,6 +95,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        session()->flash('delete', 'Category has been Deleted');
+        return redirect('categories');
     }
 }

@@ -504,6 +504,11 @@
                                                         <span class="nav-main-link-name">Tour Included Items</span>
                                                     </a>
                                                 </li>
+                                                <li class="nav-main-item">
+                                                    <a class="nav-main-link active" href="{{ route('categories.index') }}">
+                                                        <span class="nav-main-link-name">Tour Categories</span>
+                                                    </a>
+                                                </li>
                                                
                                             </ul>
                                         </li>

@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Included;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IncludedController;
 use App\Http\Controllers\RegisterController;
 
@@ -36,6 +38,7 @@ Route::middleware(['auth' ])->group(function () {
     Route::resources([
         'tours' => TourController::class,
         'includeds' => IncludedController::class,
+        'categories' => CategoryController::class,
         
        
     
