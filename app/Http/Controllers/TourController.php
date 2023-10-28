@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Tour;
+use App\Models\Category;
 use App\Models\Included;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TourController extends Controller
 {
@@ -60,10 +61,10 @@ class TourController extends Controller
             'includeditems' => ['nullable'],
             'tour_categories' => ['nullable'],
         ]);
-
+      //  dd($attributes);
         $attributes['tour_description_details_file'] = request()->file('tour_description_details_file')->store('tour_description_details_file');
 
-      //dd($attributes);
+     
      
       
         $tour = Tour::create($attributes);
@@ -73,15 +74,21 @@ $attributes_category_tour =  request()->validate([
     'tour_id' => ['integer'],
 ]);
 
-$attributes_category_tour['tour_id'] = $tour->id;
-DB::
-dd($attributes_category_tour);
+$attributes_category_tour = $tour->id;
+// /dd($attributes_category_tour);
+$tourCategories[] = $request->input('tour_categories');
+foreach ($attributes['tour_categories'] as $key => $value) {
+ //   DB::table('category_tour')->insert($attributes_category_tour);
+    DB::insert('INSERT INTO category_tour (tour_id, category_id) VALUES (?, ?)', array($attributes_category_tour, $value));
+   // DB::insert('INSERT INTO version_authors (credit_id, author_id) VALUES (?, ?)', array($credit_id, $author->id));
 
+}
+
+//dd($attributes_category_tour);
         
         
          session()->flash('success', 'Tour has been created');
-         session()->flash('type', 'Tour Creation');
-         
+                
 
         return redirect('/tours');   
     }

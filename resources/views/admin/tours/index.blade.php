@@ -12,6 +12,20 @@
                   <a class="btn btn-primary" href="{{ route('tours.create') }}" role="button">Add Tour </a>
                 </div>
               </div>
+              @if (session()->has('success'))
+              <div class="alert alert-primary" role="alert">
+                  {{ session()->get('success') }}
+               </div>
+            @elseif (session()->has('delete'))
+            <div class="alert alert-danger" role="alert">
+              {{ session()->get('delete') }}
+           </div>
+           @elseif (session()->has('updated'))
+            <div class="alert alert-success" role="alert">
+              {{ session()->get('updated') }}
+           </div>
+              @endif
+
                 <div class="block-content">
                   <table class="table table-vcenter">
                     <thead>
