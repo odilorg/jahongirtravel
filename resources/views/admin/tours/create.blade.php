@@ -83,31 +83,12 @@
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="mb-4">
-                                <label class="form-label" for="tour_description_included">Tour Included</label>
-                                <textarea  class="form-control  @error('tour_description_included')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
-                                    name="tour_description_included" rows="4" placeholder="Tour Included">  {{ old('tour_description_included') }}
-                                  
-                                </textarea>
-                                @error('tour_description_included')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label" for="tour_description_not_included">Tour not Included</label>
-                                <textarea  class="form-control  @error('tour_description_not_included')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
-                                    name="tour_description_not_included" rows="4" placeholder="Tour not Included">{{ old('tour_description_not_included') }}
-                                    
-                                </textarea>
-                                @error('tour_description_not_included')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
+                            
                             <div class="mb-4">
                                 <label class="form-label" for="tour_description_details_file">Tour File</label>
                                 <input type="file" value="{{ old('tour_description_details_file') }}" name="tour_description_details_file"
                                     class="form-control @error('tour_description_details_file')
-                {{ 'is-invalid' }} @enderror"
+                                          {{ 'is-invalid' }} @enderror"
                                     id="exampleInputEmail1">
                                 @error('tour_description_details_file')
                                     <p class="text-danger">{{ $message }}</p>
@@ -138,6 +119,15 @@
                                 <div class="form-check form-check-inline">
                                     <input type="checkbox" class="form-check-input"   value="{{ $items->id }}" id="example-checkbox-inline1 {{ $items->id }}" name="includeditems[]"  @if(is_array(old('includeditems')) && in_array($items->id, old('includeditems'))) checked @endif >
                                     <label class="form-check-label" for="example-checkbox-inline1 {{ $items->id }}">{{ $items->included_item_name }}</label>
+                                </div>
+                                @endforeach
+                            </div>
+                            <label class="form-label" for="tour_location_link">Tour Not Includes</label>
+                            <div class="mb-4">
+                                @foreach ($notincluded_items as $items)
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input"   value="{{ $items->id }}" id="example-checkbox-inline1 {{ $items->id }}" name="notincludeditems[]"  @if(is_array(old('notincludeditems')) && in_array($items->id, old('notincludeditems'))) checked @endif >
+                                    <label class="form-check-label" for="example-checkbox-inline1 {{ $items->id }}">{{ $items->notincluded_item_name }}</label>
                                 </div>
                                 @endforeach
                             </div>

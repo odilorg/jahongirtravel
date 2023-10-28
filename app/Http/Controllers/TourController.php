@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tour;
 use App\Models\Category;
 use App\Models\Included;
+use App\Models\Notincluded;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,10 +32,11 @@ class TourController extends Controller
     public function create()
     {
         $included_items = Included::all();
+        $notincluded_items = Notincluded::all();
         $tour_categories = Category::all();
       // dd($included_items);
       //return view('admin.tours.create');
-        return view('admin.tours.create', compact('included_items', 'tour_categories'));
+        return view('admin.tours.create', compact('included_items', 'tour_categories','notincluded_items'));
     }
 
     /**
@@ -59,6 +61,7 @@ class TourController extends Controller
             'tour_itinarary' => ['required', 'max:3555'],
             'tour_location_link' => ['required', 'max:1255'],
             'includeditems' => ['nullable'],
+            'notincludeditems' => ['nullable'],
             'tour_categories' => ['nullable'],
         ]);
       //  dd($attributes);
@@ -70,14 +73,15 @@ class TourController extends Controller
         $tour = Tour::create($attributes);
 //this is to add category tour table data
 
-$attributes_category_tour =  request()->validate([
-    'tour_id' => ['integer'],
-]);
+        $attributes_category_tour =  request()->validate([
+            'tour_id' => ['integer'],
+        ]);
 
 $attributes_category_tour = $tour->id;
 // /dd($attributes_category_tour);
 $tourCategories[] = $request->input('tour_categories');
 $includedItems[] = $request->input('includeditems');
+$notincludedItems[] = $request->input('notincludeditems');
 foreach ($attributes['tour_categories'] as $key => $value) {
      DB::insert('INSERT INTO category_tour (tour_id, category_id) VALUES (?, ?)', array($attributes_category_tour, $value));
  }
@@ -85,6 +89,11 @@ foreach ($attributes['tour_categories'] as $key => $value) {
  foreach ($attributes['includeditems'] as $key => $value) {
 
     DB::insert('INSERT INTO included_tour (tour_id, included_id) VALUES (?, ?)', array($attributes_category_tour, $value));
+}
+
+foreach ($attributes['notincludeditems'] as $key => $value) {
+
+    DB::insert('INSERT INTO notincluded_tour (tour_id, notincluded_id) VALUES (?, ?)', array($attributes_category_tour, $value));
 }
 
 //dd($attributes_category_tour);
