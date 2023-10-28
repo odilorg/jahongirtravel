@@ -42,7 +42,7 @@ class TourController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( Request $request)
     {
         $attributes =  request()->validate([
             'tour_title' => ['required', 'max:255'],
@@ -58,13 +58,26 @@ class TourController extends Controller
             'tour_itinarary' => ['required', 'max:3555'],
             'tour_location_link' => ['required', 'max:1255'],
             'includeditems' => ['nullable'],
-
-            
+            'tour_categories' => ['nullable'],
         ]);
-     // dd($attributes);
+
+        $attributes['tour_description_details_file'] = request()->file('tour_description_details_file')->store('tour_description_details_file');
+
+      //dd($attributes);
      
-      $attributes['tour_description_details_file'] = request()->file('tour_description_details_file')->store('tour_description_details_file');
-        Tour::create($attributes);
+      
+        $tour = Tour::create($attributes);
+//this is to add category tour table data
+
+$attributes_category_tour =  request()->validate([
+    'tour_id' => ['integer'],
+]);
+
+$attributes_category_tour['tour_id'] = $tour->id;
+DB::
+dd($attributes_category_tour);
+
+        
         
          session()->flash('success', 'Tour has been created');
          session()->flash('type', 'Tour Creation');

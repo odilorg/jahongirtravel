@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tour extends Model
 {
@@ -26,5 +27,10 @@ class Tour extends Model
 
 public function includeds() {
     return $this->belongsToMany(Included::class);
+}
+
+public function categories(): BelongsToMany
+{
+    return $this->belongsToMany(Category::class);
 }
 }
