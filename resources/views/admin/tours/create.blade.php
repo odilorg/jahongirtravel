@@ -141,6 +141,15 @@
                                 </div>
                                 @endforeach
                             </div>
+                            <label class="form-label" for="tour_location_link">Tour Categories</label>
+                            <div class="mb-4">
+                                @foreach ($tour_categories as $items)
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" class="form-check-input"   value="{{ $items->id }}" id="example-checkbox-inline1 {{ $items->id }}" name="includeditems[]"  @if(is_array(old('includeditems')) && in_array($items->id, old('includeditems'))) checked @endif >
+                                    <label class="form-check-label" for="example-checkbox-inline1 {{ $items->id }}">{{ $items->tour_category_name }}</label>
+                                </div>
+                                @endforeach
+                            </div>
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
