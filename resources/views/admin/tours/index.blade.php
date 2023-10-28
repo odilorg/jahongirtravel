@@ -44,16 +44,26 @@
                             <td>{{ $tour->tour_title }}</td>
                             <td>{{ $tour->tour_code }}</td>
                             <td>{{ $tour->tour_duration }}</td>
-                            <td class="text-center">
+                            <td >
                               <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
-                                    <i class="fa-regular fa-eye"></i>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit">
-                                  <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete">
-                                  <i class="fa fa-times"></i>
-                                </button>
+                                <a class="btn btn-info btn-sm" href="tours/{{ $tour->id }}">
+                                  <i class="fas fa-folder"></i>
+                                  View
+                                </a>
+                                <a class="btn btn-info btn-sm" href="tours/{{ $tour->id }}/edit">
+                                  <i class="fas fa-pencil-alt"></i>
+                                  Edit
+                                </a>
+                                <form action="/tours/{{ $tour->id }}" method="post"
+                                  class="float-left">
+                                  @csrf
+                                  @method('delete')
+                                  <button type="submit" class="btn btn-danger btn-sm">
+                                      <i class="fas fa-trash">
+                                      </i>
+                                      Delete
+                                  </button>
+                                </form>
                               </div>
                             </td>
                           </tr>

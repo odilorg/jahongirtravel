@@ -29,12 +29,10 @@
                             <td>{{ $items->tour_category_name }}</td>
                             <td class="text-center">
                               <div class="btn-group">
-                                
                                 <a class="btn btn-info btn-sm" href="categories/{{ $items->id }}/edit">
-                                  <i class="fas fa-pencil-alt">
-                                  </i>
+                                  <i class="fas fa-pencil-alt"></i>
                                   Edit
-                              </a>
+                                </a>
                               <form action="/categories/{{ $items->id }}" method="post"
                                 class="float-left">
                                 @csrf
@@ -44,7 +42,7 @@
                                     </i>
                                     Delete
                                 </button>
-                            </form>
+                              </form>
                               </div>
                             </td>
                           </tr>

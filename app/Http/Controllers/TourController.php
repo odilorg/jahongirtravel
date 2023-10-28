@@ -104,7 +104,8 @@ foreach ($attributes['tour_categories'] as $key => $value) {
      */
     public function show(Tour $tour)
     {
-        //
+        //dd($tour->includeds[0]['included_item_name']);
+        return view('admin.tours.show', compact('tour'));
     }
 
     /**
@@ -115,7 +116,10 @@ foreach ($attributes['tour_categories'] as $key => $value) {
      */
     public function edit(Tour $tour)
     {
-        //
+        $included_items = Included::all();
+        $tour_categories = Category::all();
+        
+        return view('admin.tours.edit', compact('tour', 'included_items', 'tour_categories'));
     }
 
     /**
