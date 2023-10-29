@@ -24,8 +24,7 @@ return new class extends Migration
             $table->text('tour_description');
             $table->string('tour_description_departure_return',150);
             $table->string('tour_description_departure_time',150);
-            $table->text('tour_description_included');
-            $table->text('tour_description_not_included');
+            
             $table->string('tour_description_details_file',150);
             $table->text('tour_itinarary');
             // $table->integer('tour_itinarary_duration');

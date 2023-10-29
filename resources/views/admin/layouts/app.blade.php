@@ -26,6 +26,8 @@
         <!-- Stylesheets -->
 
         <!-- Fonts and Codebase framework -->
+        <!-- Include stylesheet -->
+       
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap"> 
         <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/codebase.min.css') }}">
         <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" ></script>
@@ -841,14 +843,15 @@
                 Core libraries and functionality
                 webpack is putting everything together at assets/_js/main/app.js
             -->
-            
-        
+           
            
         <script src="../assets/js/codebase.app.min.js"></script>
-
+            <!-- Include the Quill library -->
+        
         <!-- Page JS Plugins -->
         <script src="../assets/js/plugins/chart.js/chart.min.js"></script>
-
+       
+    
         <!-- Page JS Code -->
         <script src="../assets/js/pages/be_pages_ecom_dashboard.min.js"></script>
     </body>

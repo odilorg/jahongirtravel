@@ -70,6 +70,9 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <div class="pagination-block">
+                    {{ $tours->links('admin.layouts.paginationlinks') }}
+                </div>
                 </div>
               </div>
         

@@ -56,9 +56,7 @@
                                 <label class="form-label" for="tour_description">Tour Description</label>
                                 <textarea class="form-control  
                                 @error('tour_description')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
-                                    name="tour_description" rows="4" placeholder="Tour Description"> {{ old('tour_description') }}
-                                   
-                                </textarea>
+                                    name="tour_description" rows="4" placeholder="Tour Description">{{ old('tour_description') }}</textarea>
                                 @error('tour_description')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
@@ -66,9 +64,7 @@
                             <div class="mb-4">
                                 <label class="form-label" for="tour_description_departure_return">Tour Start End Points</label>
                                 <textarea  class="form-control  @error('tour_description_departure_return')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
-                                    name="tour_description_departure_return" rows="4" placeholder="Tour Start End Points"> {{ old('tour_description_departure_return') }}
-                                   
-                                </textarea>
+                                    name="tour_description_departure_return" rows="4" placeholder="Tour Start End Points">{{ old('tour_description_departure_return') }}</textarea>
                                 @error('tour_description_departure_return')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
@@ -88,7 +84,7 @@
                                 <label class="form-label" for="tour_description_details_file">Tour File</label>
                                 <input type="file" value="{{ old('tour_description_details_file') }}" name="tour_description_details_file"
                                     class="form-control @error('tour_description_details_file')
-                                          {{ 'is-invalid' }} @enderror"
+                {{ 'is-invalid' }} @enderror"
                                     id="exampleInputEmail1">
                                 @error('tour_description_details_file')
                                     <p class="text-danger">{{ $message }}</p>
@@ -97,9 +93,7 @@
                             <div class="mb-4">
                                 <label class="form-label" for="tour_itinarary">Tour Itinarary</label>
                                 <textarea  class="form-control  @error('tour_itinarary')  {{ 'is-invalid' }} @enderror " id="example-textarea-input"
-                                    name="tour_itinarary" rows="4" placeholder="Tour Itinarary">{{ old('tour_itinarary') }}
-                                   
-                                </textarea>
+                                    name="tour_itinarary" rows="4" placeholder="Tour Itinarary">{{ old('tour_itinarary') }}</textarea>
                                 @error('tour_itinarary')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
@@ -121,8 +115,7 @@
                                     <label class="form-check-label" for="example-checkbox-inline1 {{ $items->id }}">{{ $items->included_item_name }}</label>
                                 </div>
                                 @endforeach
-                            </div>
-                            <label class="form-label" for="tour_location_link">Tour Not Includes</label>
+                            </div><label class="form-label" for="tour_location_link">Tour Not Includes</label>
                             <div class="mb-4">
                                 @foreach ($notincluded_items as $items)
                                 <div class="form-check form-check-inline">
